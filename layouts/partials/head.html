@@ -6,6 +6,6 @@
 	<meta name="author" content="Kazuichi Takashiro">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{{ if .Title }}{{ .Title }} - {{ end }} {{ .Site.Title }}</title>
-	{{ $style := resources.Get "global.scss" | resources.ToCSS | minify }}
+	{{ $style := resources.Get "style/global.scss" | resources.ToCSS | minify }}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 </head>
