@@ -1,3 +1,14 @@
 {{ define "main" }}
-	This is a test.
+	<div class="option">
+		<label for="length">Length</label><input type="text" id="length" name="length" value="32">
+	</div>
+	<div class="option">
+		<label for="num">Num</label><input type="text" id="num" name="num" value="1">
+	</div>
+	<div class="long-text" id="output">
+		<input type="text">
+	</div>
+	<div class="button-area">
+		<button type="button" id="generate-button">Generate</button>
+	</div>
 {{ end }}

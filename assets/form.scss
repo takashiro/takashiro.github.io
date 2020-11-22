@@ -1,0 +1,32 @@
+.option {
+	line-height: 2em;
+	display: flex;
+	margin: 20px;
+
+	label,
+	input[type="text"] {
+		display: block;
+	}
+
+	label {
+		width: 8em;
+	}
+
+	input[type="text"] {
+		flex: auto;
+	}
+}
+
+.long-text {
+	display: flex;
+	flex-direction: row;
+	input[type="text"] {
+		flex: 1 1 auto;
+		margin: 20px;
+	}
+}
+
+.button-area {
+	text-align: center;
+	margin: 20px 0;
+}

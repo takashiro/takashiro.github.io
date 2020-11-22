@@ -44,38 +44,6 @@ input[type="text"] {
 	border-radius: 6px;
 }
 
-.option {
-	line-height: 2em;
-	display: flex;
-	margin: 20px 0;
-
-	label,
-	input[type="text"] {
-		display: block;
-	}
-
-	label {
-		width: 8em;
-	}
-
-	input[type="text"] {
-		flex: auto;
-	}
-}
-
-.long-text {
-	input[type="text"] {
-		width: 100%;
-		display: block;
-		margin: 10px;
-	}
-}
-
-.button-area {
-	text-align: center;
-	margin: 20px 0;
-}
-
 a {
 	text-decoration: none;
 
@@ -86,3 +54,4 @@ a {
 
 @import './header.scss';
 @import './footer.scss';
+@import './form.scss';
