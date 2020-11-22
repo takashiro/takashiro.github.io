@@ -11,6 +11,6 @@
 	<div class="button-area">
 		<button type="button" id="generate-button">Generate</button>
 	</div>
-	{{ $built := resources.Get "genpw.ts" | js.Build }}
+	{{ $built := resources.Get "scripts/genpw.ts" | js.Build }}
 	<script src="{{ $built.RelPermalink }}"></script>
 {{ end }}
