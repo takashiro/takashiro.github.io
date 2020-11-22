@@ -1,0 +1,88 @@
+html {
+	min-height: 100vh;
+}
+
+body,
+button,
+input {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background: linear-gradient(to bottom right, rgb(20, 20, 20), rgb(48, 49, 49)) no-repeat;
+	color: rgb(230, 230, 230);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	section.main {
+		flex: 1 1 auto;
+	}
+}
+
+button {
+	background: #58bedf;
+	border: 0 solid;
+	color: white;
+	font-size: 12pt;
+	padding: 0.8em 1.2em;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+	border-radius: 6px;
+}
+
+label {
+	font-size: 13pt;
+}
+
+input[type="text"] {
+	border: 0 solid;
+	font-size: 13pt;
+	padding: 0 0.5em;
+	line-height: 2em;
+	border-radius: 6px;
+}
+
+.option {
+	line-height: 2em;
+	display: flex;
+	margin: 20px 0;
+
+	label,
+	input[type="text"] {
+		display: block;
+	}
+
+	label {
+		width: 8em;
+	}
+
+	input[type="text"] {
+		flex: auto;
+	}
+}
+
+.long-text {
+	input[type="text"] {
+		width: 100%;
+		display: block;
+		margin: 10px;
+	}
+}
+
+.button-area {
+	text-align: center;
+	margin: 20px 0;
+}
+
+a {
+	text-decoration: none;
+
+	&:visited {
+		color: rgb(114, 66, 112);
+	}
+}
+
+@import './header.scss';
+@import './footer.scss';
