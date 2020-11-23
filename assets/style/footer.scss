@@ -1,8 +1,32 @@
 footer {
-	font-size: 9pt;
+	font-size: 11pt;
 	text-align: right;
 	color: rgb(97, 97, 97);
-	height: 4em;
-	line-height: 4em;
-	padding: 0 2em;
+	padding: 1em;
+
+	a {
+		color: #939393;
+
+		&:visited {
+			color: #585858;
+		}
+	}
+
+	.icp-beian,
+	.ps-beian {
+		height: 30px;
+		line-height: 30px;
+		margin: 0 20px;
+		display: inline-block;
+	}
+
+	.ps-beian {
+		i.logo {
+			display: inline-block;
+			background: url(./beian.png) no-repeat;
+			width: 20px;
+			height: 20px;
+			vertical-align: text-bottom;
+		}
+	}
 }
