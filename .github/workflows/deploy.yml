@@ -25,7 +25,9 @@ jobs:
         DEPLOY_FINGERPRINT: ${{ secrets.DEPLOY_FINGERPRINT }}
       run: |
         mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
         echo "$DEPLOY_FINGERPRINT" >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
