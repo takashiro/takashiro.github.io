@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@master
+
+    - name: Build Hugo
+      uses: lowply/build-hugo@v0.78.0
+
+    - name: Zip all assets
+      run: tar czf site.tgz -C public .
+
+    - name: Install SSH Private Key
+      with:
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          DEPLOY_FINGERPRINT: ${{ secrets.DEPLOY_FINGERPRINT }}
+      run:
+        - mkdir -p ~/.ssh/id_rsa
+        - cat "$DEPLOY_KEY" > ~/.ssh/id_rsa
+        - cat "$DEPLOY_FINGERPRINT" >> ~/.ssh/known_hosts
+
+    - name: Deploy to Server
+      with:
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
+      run:
+        - scp site.tgz $DEPLOY_USER@$DEPLOY_HOST:~
+        - ssh $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_DIR && rm -rf ./* && tar xf ~/site.tgz"
+
