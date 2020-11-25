@@ -20,21 +20,19 @@ jobs:
       run: tar czf site.tgz -C public .
 
     - name: Install SSH Private Key
-      with:
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-          DEPLOY_FINGERPRINT: ${{ secrets.DEPLOY_FINGERPRINT }}
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        DEPLOY_FINGERPRINT: ${{ secrets.DEPLOY_FINGERPRINT }}
       run:
         - mkdir -p ~/.ssh/id_rsa
         - cat "$DEPLOY_KEY" > ~/.ssh/id_rsa
         - cat "$DEPLOY_FINGERPRINT" >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
-      with:
-        env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-          DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
+      env:
+        DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
       run:
         - scp site.tgz $DEPLOY_USER@$DEPLOY_HOST:~
         - ssh $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_DIR && rm -rf ./* && tar xf ~/site.tgz"
