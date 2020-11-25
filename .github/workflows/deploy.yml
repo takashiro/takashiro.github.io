@@ -35,5 +35,5 @@ jobs:
         DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
       run: |
         scp site.tgz $DEPLOY_USER@$DEPLOY_HOST:~
-        ssh $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_DIR && rm -rf ./* && tar xf ~/site.tgz"
+        ssh $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_DIR && rm -rf ./* && tar xf ~/site.tgz && rm ~/site.tgz"
 
