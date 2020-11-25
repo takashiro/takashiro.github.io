@@ -24,7 +24,7 @@ jobs:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         DEPLOY_FINGERPRINT: ${{ secrets.DEPLOY_FINGERPRINT }}
       run: |
-        mkdir -p ~/.ssh/id_rsa
+        mkdir -p ~/.ssh
         cat "$DEPLOY_KEY" > ~/.ssh/id_rsa
         cat "$DEPLOY_FINGERPRINT" >> ~/.ssh/known_hosts
 
