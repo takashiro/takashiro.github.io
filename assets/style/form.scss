@@ -4,7 +4,8 @@
 	margin: 20px;
 
 	label,
-	input[type="text"] {
+	input[type="text"],
+	input[type="number"] {
 		display: block;
 	}
 
@@ -12,7 +13,8 @@
 		width: 8em;
 	}
 
-	input[type="text"] {
+	input[type="text"],
+	input[type="number"] {
 		flex: auto;
 	}
 }
@@ -20,7 +22,8 @@
 .long-text {
 	display: flex;
 	flex-direction: row;
-	input[type="text"] {
+	input[type="text"],
+	input[type="number"] {
 		flex: 1 1 auto;
 		margin: 20px;
 	}
