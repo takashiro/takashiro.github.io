@@ -36,7 +36,8 @@ label {
 	font-size: 13pt;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
 	border: 0 solid;
 	font-size: 13pt;
 	padding: 0 0.5em;
